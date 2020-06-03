@@ -6,6 +6,8 @@ This project provides a containerized DNS server that forwards queries to Azure'
 
 This Container can be deployed and exposed internally with Azure Kubernetes Service as well as Azure Container Instances.
 
+![DNS Forwarder](https://docs.microsoft.com/en-us/azure/private-link/media/private-endpoint-dns/hybrid-scenario.png)
+
 ## Get started
 Below you find get started guides for AKS as well as ACI.
 
