@@ -18,7 +18,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         path: src/
         registry: docker.pkg.github.com
-        repository: /whiteducksoftware/az-dns-forwarder/az-dns-forwarder
+        repository: whiteducksoftware/az-dns-forwarder/az-dns-forwarder
         tags: latest
         tag_with_sha: true
         add_git_labels: true
