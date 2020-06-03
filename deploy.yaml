@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: az-dns-forwarder
+  name: az-dns-forwarder
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: az-dns-forwarder
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: az-dns-forwarder
+    spec:
+      containers:
+        - image: docker.pkg.github.com/whiteducksoftware/az-dns-forwarder/az-dns-forwarder:latest
+          name: bind
+          ports:
+          - containerPort: 53
+            protocol: UDP
+          resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: az-dns-forwarder
+  name: az-dns-forwarder
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+spec:
+  ports:
+  - port: 53
+    protocol: UDP
+    targetPort: 53
+  selector:
+    app: az-dns-forwarder
+  type: LoadBalancer
+status:
+  loadBalancer: {}
