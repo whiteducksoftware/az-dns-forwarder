@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.12
 
 LABEL maintainer="nico.meisenzahl@whiteduck.de" \
 org.label-schema.vcs-url="https://github.com/whiteducksoftware/az-dns-forwarder"
