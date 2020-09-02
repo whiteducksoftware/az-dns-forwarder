@@ -22,7 +22,7 @@ spec:
         app: az-dns-forwarder
     spec:
       containers:
-        - image: docker.pkg.github.com/whiteducksoftware/az-dns-forwarder/az-dns-forwarder:latest
+        - image: ghcr.io/whiteducksoftware/az-dns-forwarder/az-dns-forwarder:latest
           name: bind
           ports:
           - containerPort: 53
