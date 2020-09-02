@@ -1,8 +1,6 @@
 name: Build and push Container
 on:
   push:
-    paths:
-    - 'src/'
     branches:
       - master
 jobs:
